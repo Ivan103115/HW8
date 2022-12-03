@@ -75,3 +75,15 @@ if connektion is not None:
     rekud_students(connektion)
     update_students_mark_is_married(connektion,4,100,False)
     rekud_students(connektion)
+
+def delete(conn, id):
+    sql = ''' DELETE FROM student WHERE id=?'''
+    try:
+        cursor = conn.cursor()
+        cursor.execute(sql, id)
+        conn.commit()
+    except Error as e:
+        print(e)
+
+    delete(conn, 4)
+
